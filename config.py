@@ -25,9 +25,8 @@ def create_config():
     config['MailCow']['Hostname'] = 'https://mail.example.com'
     config['MailCow']['API-Key'] = 'XXXXXX-XXXXXX-XXXXXX-XXXXXX-XXXXXX'
     config['MailCow']['Sync-Interval'] = 300
-    if not Path('/db/config.ini').is_file():
-        with open('/db/config.ini', 'w') as configfile:
-            config.write(configfile)
+    with open('/db/config.ini', 'w') as configfile:
+        config.write(configfile)
 
 def apply_config(config_file, config_data):
     if os.path.isfile(config_file):
