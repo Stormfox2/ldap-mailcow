@@ -4,19 +4,19 @@ from pathlib import Path
 
 def create_config():
     config = configparser.ConfigParser()
-    config['Host']
+    config['Host'] = {}
     config['Host']['Hostname'] = 'ldap://ldap.example.com'
     config['Host']['BaseDN'] = 'OU=people,dc=example,dc=com'
     config['Host']['DisplayName'] = 'Active Directory'
-    config['Bind']
+    config['Bind'] = {}
     config['Bind']['User'] = 'CN=admin,dc=example,dc=eu'
     config['Bind']['Password'] = 'CN=admin,dc=example,dc=eu'
-    config['LDAP params']
+    config['LDAP params'] = {}
     config['LDAP params']['Username'] = 'userPrincipalName'
     config['LDAP params']['Fullname'] = 'cn'
     config['LDAP params']['Mail Address'] = 'mail'
     config['LDAP params']['Active User'] = 'userAccountControl'
-    config['MailCow']
+    config['MailCow'] = {}
     config['MailCow']['Hostname'] = 'https://mail.example.com'
     config['MailCow']['API-Key'] = 'XXXXXX-XXXXXX-XXXXXX-XXXXXX-XXXXXX'
     config['MailCow']['Sync-Interval'] = 300
