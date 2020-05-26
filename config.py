@@ -1,6 +1,8 @@
 import configparser
+from pathlib import Path
 
-with create_config(r'/db/config.yaml') as file:
+
+def create_config():
     config = configparser.ConfigParser()
     config['Host']
     config['Host']['Hostname'] = 'ldap://ldap.example.com'
