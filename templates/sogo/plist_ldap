@@ -6,11 +6,11 @@
     <string>$${line}_ldap</string>
 
     <key>CNFieldName</key>
-    <string>cn</string>
+    <string>$full_name_field</string>
     <key>IDFieldName</key>
-    <string>cn</string>
+    <string>$full_name_field</string>
     <key>UIDFieldName</key>
-    <string>userPrincipalName</string>
+    <string>$ldap_uid_field</string>
 
     <key>baseDN</key>
     <string>$ldap_base_dn</string>
@@ -21,7 +21,7 @@
     <string>$ldap_bind_dn_password</string>
     <key>bindFields</key>
     <array>
-        <string>userPrincipalName</string>
+        <string>$ldap_uid_field</string>
     </array>
 
     <key>bindAsCurrentUser</key>
@@ -35,7 +35,7 @@
     <key>isAddressBook</key>
     <string>NO</string>
     <key>displayName</key>
-    <string>Active Directory</string>
+    <string>$display_name</string>
 
     <key>scope</key>
     <string>SUB</string>
