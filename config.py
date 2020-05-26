@@ -9,7 +9,7 @@ from string import Template
 
 def create_config():
     config = configparser.ConfigParser()
-    config['Host'] = {}
+    config.add_section('Host')
     config['Host']['Hostname'] = 'ldap://ldap.example.com'
     config['Host']['BaseDN'] = 'OU=people,dc=example,dc=com'
     config['Host']['DisplayName'] = 'Active Directory'
