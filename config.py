@@ -57,6 +57,8 @@ def read_config():
     config = configparser.ConfigParser()
     config.read('db/config.ini')
 
+    logging.info(config.sections())
+
     result = {}
 
     result['HostName'] = config.get('Host', 'Hostname')
