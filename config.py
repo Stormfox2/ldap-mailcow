@@ -1,5 +1,10 @@
 import configparser
+import logging
+import os
+import syncer
 from pathlib import Path
+from string import Template
+
 
 
 def create_config():
@@ -55,18 +60,18 @@ def read_config():
 
     result = {}
 
-    result['HostName'] = config['Host']['Hostname']
-    result['BaseDN'] = config['Host']['BaseDN']
-    result['DisplayName'] = config['Host']['DisplayName']
-    result['BindUser'] = config['Bind']['User']
-    result['BindPassword'] = config['Bind']['Password']
-    result['Username'] = config['LDAP param']['Username']
-    result['Fullname'] = config['LDAP param']['Fullname']
-    result['Mail Address'] = config['LDAP param']['Mail Address']
-    result['Active User'] = config['LDAP params']['Active User']
-    result['MailHostName'] = config['MailCow']['Hostname']
-    result['API-Key'] = config['MailCow']['API-Key']
-    result['Sync-Interval'] = config['MailCow']['Sync-Interval']
+    result['HostName'] = config.get('Host', 'Hostname')
+    result['BaseDN'] = config.get('Host', 'BaseDN')
+    result['DisplayName'] = config.get('Host', 'DisplayName')
+    result['BindUser'] = config.get('Bind', 'User')
+    result['BindPassword'] = config.get('Bind', 'Password')
+    result['Username'] = config.get('LDAP param', 'Username')
+    result['Fullname'] = config.get('LDAP param', 'Fullname')
+    result['Mail Address'] = config.get('LDAP param', 'Mail Address')
+    result['Active User'] = config.get('LDAP param', 'Active User')
+    result['MailHostName'] = config.get('MailCow', 'Hostname')
+    result['API-Key'] = config.get('MailCow', 'API-Key')
+    result['Sync-Interval'] = config.get('MailCow', 'Sync-Interval')
 
     return result
 
@@ -82,6 +87,8 @@ def read_dovecot_passdb_conf_template():
 def read_sogo_plist_ldap_template():
     with open('templates/sogo/plist_ldap') as f:
         data = Template(f.read())
+
+    config = syncer.getConfig()
 
     return data.substitute(
         ldap_host=config['Hostname'],
