@@ -25,7 +25,7 @@ def create_config():
     config['MailCow']['Hostname'] = 'https://mail.example.com'
     config['MailCow']['API-Key'] = 'XXXXXX-XXXXXX-XXXXXX-XXXXXX-XXXXXX'
     config['MailCow']['Sync-Interval'] = 300
-    with open('/db/config.ini', 'w') as configfile:
+    with open('db/config.ini', 'w') as configfile:
         config.write(configfile)
 
 def apply_config(config_file, config_data):
@@ -55,7 +55,7 @@ def apply_config(config_file, config_data):
 
 def read_config():
     config = configparser.ConfigParser()
-    config.read('/db/config.ini')
+    config.read('db/config.ini')
 
     result = {}
 
