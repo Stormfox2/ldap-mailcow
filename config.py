@@ -1,7 +1,7 @@
 import configparser
 import logging
 import os
-import syncer
+from syncer import config
 from pathlib import Path
 from string import Template
 
@@ -80,7 +80,6 @@ def read_dovecot_passdb_conf_template():
     with open('templates/dovecot/ldap/passdb.conf') as f:
         data = Template(f.read())
 
-    config = syncer.config
     return data.substitute(
         ldap_host=config['Hostname'],
         ldap_base_dn=config['BaseDN']
@@ -89,8 +88,6 @@ def read_dovecot_passdb_conf_template():
 def read_sogo_plist_ldap_template():
     with open('templates/sogo/plist_ldap') as f:
         data = Template(f.read())
-
-    config = syncer.config
 
     return data.substitute(
         ldap_host=config['Hostname'],
