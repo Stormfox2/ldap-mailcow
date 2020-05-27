@@ -18,7 +18,7 @@ def main():
     configPath = Path("db/config.ini")
     if not configPath.is_file():
         config.create_config()
-    config_file: Dict[str, str] = config.read_config()
+    config_file = config.read_config()
 
     logging.info('Config in syncer')
     logging.info(config_file.keys())
