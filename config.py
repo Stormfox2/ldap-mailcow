@@ -22,7 +22,6 @@ def create_config():
     config['LDAP params']['ObjectClass'] = 'user'
     config['LDAP params']['ObjectCategory'] = 'person'
     config['LDAP params']['Username'] = 'userPrincipalName'
-    config['LDAP params']['Username'] = 'userPrincipalName'
     config['LDAP params']['Fullname'] = 'cn'
     config['LDAP params']['Mail Address'] = 'mail'
     config['LDAP params']['Active User'] = 'userAccountControl'
