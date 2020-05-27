@@ -14,7 +14,7 @@ config_file = {}
 def main():
     global config_file
     configPath = Path("data/config.ini")
-    configPath.is_file()
+    logging.info(configPath.is_file())
     if not configPath.is_file():
         config.create_config()
     config_file = config.read_config()
