@@ -48,7 +48,7 @@ def sync():
     ldap_connector.simple_bind_s(config_file['BindUser'], config_file['BindPassword'])
 
     ldap_results = ldap_connector.search_s(config_file['BaseDN'], ldap.SCOPE_SUBTREE,
-                '(&(objectClass=inetOrgPerson)(objectCategory=gosaMailAccount))',
+                '(objectClass=gosaMailAccount)',
                 [config_file['Username'], config_file['Fullname'], config_file['Active User']])
 
     logging.info(ldap_results)
