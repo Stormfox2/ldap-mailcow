@@ -16,7 +16,6 @@ config_file = {}
 
 
 def main():
-    globals.initialize()
     global config_file
     time.sleep(5)
     configPath = Path("db/config.ini")
