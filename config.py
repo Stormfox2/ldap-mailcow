@@ -1,7 +1,7 @@
 import configparser
 import logging
 import os
-from syncer import configFile
+import syncer
 from pathlib import Path
 from string import Template
 
