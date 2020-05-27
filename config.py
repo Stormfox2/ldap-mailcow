@@ -17,8 +17,11 @@ def create_config():
     config['Host']['DisplayName'] = 'Active Directory'
     config['Bind'] = {}
     config['Bind']['User'] = 'CN=admin,dc=example,dc=eu'
-    config['Bind']['Password'] = 'CN=admin,dc=example,dc=eu'
+    config['Bind']['Password'] = 'password'
     config['LDAP params'] = {}
+    config['LDAP params']['ObjectClass'] = 'user'
+    config['LDAP params']['ObjectCategory'] = 'person'
+    config['LDAP params']['Username'] = 'userPrincipalName'
     config['LDAP params']['Username'] = 'userPrincipalName'
     config['LDAP params']['Fullname'] = 'cn'
     config['LDAP params']['Mail Address'] = 'mail'
