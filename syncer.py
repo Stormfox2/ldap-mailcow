@@ -51,6 +51,8 @@ def sync():
                 '(&(objectClass=inetOrgPerson)(objectCategory=gosaMailAccount))',
                 [config_file['Username'], config_file['Fullname'], config_file['Active User']])
 
+    logging.info(ldap_results)
+
     ldap_results = map(lambda x: (
         x[1][config_file['Username']][0].decode(),
         x[1][config_file['Fullname']][0].decode(),
