@@ -49,12 +49,12 @@ def sync():
 
     ldap_results = ldap_connector.search_s(config_file['BaseDN'], ldap.SCOPE_SUBTREE,
                 '(&(objectClass=user)(objectCategory=person))', 
-                [config['Username'], config['Full Name'], config['Active User']])
+                [config_file['Username'], config_file['Full Name'], config_file['Active User']])
 
     ldap_results = map(lambda x: (
-        x[1][config['Username']][0].decode(),
-        x[1][config['Full Name']][0].decode(),
-        False if int(x[1][config['Active User']][0].decode()) & 0b10 else True), ldap_results)
+        x[1][config_file['Username']][0].decode(),
+        x[1][config_file['Full Name']][0].decode(),
+        False if int(x[1][config_file['Active User']][0].decode()) & 0b10 else True), ldap_results)
 
     filedb.session_time = datetime.datetime.now()
 
