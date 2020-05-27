@@ -13,6 +13,7 @@ config_file = {}
 
 def main():
     global config_file
+    time.sleep(5)
     configPath = Path("data/config.ini")
     logging.info(Path('data').exists())
     logging.info(configPath.exists())
