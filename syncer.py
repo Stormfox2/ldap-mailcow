@@ -1,5 +1,4 @@
 import sys, os, string, time, datetime
-import globals
 
 import ldap
 import self as self
