@@ -38,12 +38,12 @@ def main():
         time.sleep(interval)
 
 def sync():
-    logging.info(configFile.keys())
-    ldap_connector = ldap.initialize(f"{configFile['HostName']}")
+    logging.info(config_file.keys())
+    ldap_connector = ldap.initialize(f"{config_file['HostName']}")
     ldap_connector.set_option(ldap.OPT_REFERRALS, 0)
-    ldap_connector.simple_bind_s(configFile['BindUser'], configFile['BindPassword'])
+    ldap_connector.simple_bind_s(config_file['BindUser'], config_file['BindPassword'])
 
-    ldap_results = ldap_connector.search_s(configFile['BaseDN'], ldap.SCOPE_SUBTREE,
+    ldap_results = ldap_connector.search_s(config_file['BaseDN'], ldap.SCOPE_SUBTREE,
                 '(&(objectClass=user)(objectCategory=person))', 
                 [config['Username'], config['Full Name'], config['Active User']])
 
