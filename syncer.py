@@ -1,7 +1,8 @@
 import sys, os, string, time, datetime
-from typing import Dict
+import globals
 
 import ldap
+import self as self
 
 import filedb, api, config
 
@@ -16,12 +17,13 @@ config_file = {}
 
 
 def main():
+    globals.initialize()
     global config_file
     time.sleep(5)
     configPath = Path("db/config.ini")
     if not configPath.is_file():
         config.create_config()
-    config_file = config.read_config()
+    self.config_file = config.read_config()
 
     logging.info('Config in syncer')
     logging.info(config_file.keys())
