@@ -49,7 +49,7 @@ def sync():
 
     ldap_results = ldap_connector.search_s(config_file['BaseDN'], ldap.SCOPE_SUBTREE,
                 '(&(objectClass=user)(objectCategory=person))', 
-                [config_file['Username'], config_file['Full Name'], config_file['Active User']])
+                [config_file['Username'], config_file['Fullname'], config_file['Active User']])
 
     ldap_results = map(lambda x: (
         x[1][config_file['Username']][0].decode(),
