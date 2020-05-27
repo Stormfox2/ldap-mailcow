@@ -51,8 +51,8 @@ def __delete_user(email):
 def check_user(email):
     url = f"{api_host}/api/v1/get/mailbox/{email}"
     headers = {'X-API-Key': api_key, 'Content-type': 'application/json'}
-    rsp = requests.get(url, headers=headers).json()
-    
+    rsp = requests.get(url, headers=headers)
+    rsp
     if not isinstance(rsp, dict):
         sys.exit("API get/mailbox: got response of a wrong type")
 
