@@ -9,13 +9,13 @@ from pathlib import Path
 import logging
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%d.%m.%y %H:%M:%S', level=logging.INFO)
 
-configFile = {}
+config_file = {}
 
 def main():
-
+    global config_file
     if not Path("data/config.ini").is_file():
         config.create_config()
-    configFile = config.read_config()
+    config_file = config.read_config()
 
     passdb_conf = config.read_dovecot_passdb_conf_template()
     plist_ldap = config.read_sogo_plist_ldap_template()
@@ -28,12 +28,12 @@ def main():
     if passdb_conf_changed or extra_conf_changed or plist_ldap_changed:
         logging.info ("One or more config files have been changed, please make sure to restart dovecot-mailcow and sogo-mailcow!")
 
-    api.api_host = configFile['MailHostName']
-    api.api_key = configFile['API-Key']
+    api.api_host = config_file['MailHostName']
+    api.api_key = config_file['API-Key']
 
     while (True):
         sync()
-        interval = int(configFile['Sync-Interval'])
+        interval = int(config_file['Sync-Interval'])
         logging.info(f"Sync finished, sleeping {interval} seconds before next cycle")
         time.sleep(interval)
 
