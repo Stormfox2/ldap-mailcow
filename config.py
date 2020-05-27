@@ -86,9 +86,15 @@ def read_dovecot_passdb_conf_template():
     with open('templates/dovecot/ldap/passdb.conf') as f:
         data = Template(f.read())
 
+
+    host = str(config_file['HostName'])
+    host = host.replace('ldap://', '')
+    host = host.replace('ldaps://', '')
+
+
     logging.info(config_file)
     return data.substitute(
-        ldap_host= config_file['HostName'],
+        ldap_host= host,
         ldap_base_dn= config_file['BaseDN']
         )
 
