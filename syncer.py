@@ -98,7 +98,7 @@ def sync():
         logging.info (f"Deactivated user {email} in filedb, not found in LDAP")
 
 def getConfig():
-    return configFile()
+    return config()
 
 if __name__ == '__main__':
     main()
