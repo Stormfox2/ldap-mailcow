@@ -25,6 +25,7 @@ def main():
 
     logging.info('Config in syncer')
     logging.info(config_file.keys())
+    test()
 
     passdb_conf = config.read_dovecot_passdb_conf_template()
     plist_ldap = config.read_sogo_plist_ldap_template()
@@ -47,6 +48,8 @@ def main():
         logging.info(f"Sync finished, sleeping {interval} seconds before next cycle")
         time.sleep(interval)
 
+def test():
+    logging.info(config_file)
 
 def sync():
     logging.info(config_file.keys())
