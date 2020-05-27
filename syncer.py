@@ -19,6 +19,9 @@ def main():
         config.create_config()
     config_file = config.read_config()
 
+    logging.info('Config in syncer')
+    logging.info(config_file.keys())
+
     passdb_conf = config.read_dovecot_passdb_conf_template()
     plist_ldap = config.read_sogo_plist_ldap_template()
     extra_conf = config.read_dovecot_extra_conf()
