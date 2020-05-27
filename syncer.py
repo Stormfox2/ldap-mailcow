@@ -53,7 +53,7 @@ def sync():
 
     ldap_results = map(lambda x: (
         x[1][config_file['Username']][0].decode(),
-        x[1][config_file['Full Name']][0].decode(),
+        x[1][config_file['Fullname']][0].decode(),
         False if int(x[1][config_file['Active User']][0].decode()) & 0b10 else True), ldap_results)
 
     filedb.session_time = datetime.datetime.now()
