@@ -11,15 +11,12 @@ from pathlib import Path
 import logging
 
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%d.%m.%y %H:%M:%S', level=logging.INFO)
+configPath = Path("db/config.ini")
+if not configPath.is_file():
+    config.create_config()
+config_file = config.read_config()
 
 def main():
-    global config_file
-    time.sleep(5)
-    configPath = Path("db/config.ini")
-    if not configPath.is_file():
-        config.create_config()
-    config_file = config.read_config()
-
     logging.info('Config in syncer')
     logging.info(config_file.keys())
 
