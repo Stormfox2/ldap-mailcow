@@ -1,5 +1,6 @@
 import random, string, sys
 import requests
+import logging
 
 def __post_request(url, json_data):
     api_url = f"{api_host}/{url}"
@@ -52,7 +53,7 @@ def check_user(email):
     url = f"{api_host}/api/v1/get/mailbox/{email}"
     headers = {'X-API-Key': api_key, 'Content-type': 'application/json'}
     rsp = requests.get(url, headers=headers)
-    rsp
+    logging.info(rsp)
     if not isinstance(rsp, dict):
         sys.exit("API get/mailbox: got response of a wrong type")
 
