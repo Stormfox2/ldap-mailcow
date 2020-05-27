@@ -9,8 +9,8 @@ from pathlib import Path
 import logging
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%d.%m.%y %H:%M:%S', level=logging.INFO)
 
+global configFile
 def main():
-    global configFile
     if not Path("data/config.ini").is_file():
         config.create_config()
     configFile = config.read_config()
@@ -98,7 +98,7 @@ def sync():
         logging.info (f"Deactivated user {email} in filedb, not found in LDAP")
 
 def getConfig():
-    return config()
+    return configFile()
 
 if __name__ == '__main__':
     main()

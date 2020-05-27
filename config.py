@@ -81,8 +81,8 @@ def read_dovecot_passdb_conf_template():
         data = Template(f.read())
 
     return data.substitute(
-        ldap_host=config.config['Hostname'],
-        ldap_base_dn=config.config['BaseDN']
+        ldap_host=config['Hostname'],
+        ldap_base_dn=config['BaseDN']
         )
 
 def read_sogo_plist_ldap_template():
