@@ -1,4 +1,6 @@
 import sys, os, string, time, datetime
+from typing import Dict
+
 import ldap
 
 import filedb, api, config
@@ -10,14 +12,13 @@ import logging
 
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%d.%m.%y %H:%M:%S', level=logging.INFO)
 
-config_file = {}
 def main():
     global config_file
     time.sleep(5)
     configPath = Path("db/config.ini")
     if not configPath.is_file():
         config.create_config()
-    config_file = config.read_config()
+    config_file: Dict[str, str] = config.read_config()
 
     logging.info('Config in syncer')
     logging.info(config_file.keys())
@@ -113,7 +114,3 @@ def sync():
 
 if __name__ == '__main__':
     main()
-
-
-def config_file():
-    return config_file
