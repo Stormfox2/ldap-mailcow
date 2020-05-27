@@ -8,6 +8,8 @@ from string import Template
 
 
 def create_config():
+    logging.info("Creating new configfile")
+
     config = configparser.ConfigParser()
     config.add_section('Host')
     config.set('Host', 'Hostname', 'ldap://ldap.example.com')
