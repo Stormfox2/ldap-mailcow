@@ -8,11 +8,11 @@ from string import Template
 
 
 def create_config():
-    config = configparser.ConfigParser()
+    config = open("db/config.ini", "w")
     config.add_section('Host')
-    config.set('Hostname', 'Host', 'ldap://ldap.example.com')
-    with open('db/config.ini', 'w') as configfile:
-        config.write(configfile)
+    config.set('Host', 'Hostname', 'ldap://ldap.example.com')
+    config.write()
+    config.close()
 
 def apply_config(config_file, config_data):
     if os.path.isfile(config_file):
