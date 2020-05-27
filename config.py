@@ -80,8 +80,7 @@ def read_dovecot_passdb_conf_template():
     with open('templates/dovecot/ldap/passdb.conf') as f:
         data = Template(f.read())
 
-    syncer.config_file.keys()
-    config = {}
+    config = syncer.config_file
     return data.substitute(
         ldap_host= config.get('Host', 'Hostname'),
         ldap_base_dn=config.get('Host', 'BaseDN')
@@ -91,7 +90,7 @@ def read_sogo_plist_ldap_template():
     with open('templates/sogo/plist_ldap') as f:
         data = Template(f.read())
 
-    configFile = syncer.configFile
+    configFile = syncer.config_file
 
     return data.substitute(
         ldap_host=configFile.get('Host', 'Hostname'),
