@@ -97,13 +97,13 @@ def read_sogo_plist_ldap_template():
     configFile = syncer.config_file
 
     return data.substitute(
-        ldap_host=configFile.get('Host', 'Hostname'),
-        ldap_base_dn=configFile.get('Host', 'BaseDN'),
-        ldap_uid_field=configFile.get('LDAP params', 'Username'),
-        full_name_field=configFile.get('LDAP params', 'Full Name'),
-        ldap_bind_dn=configFile.get('Bind', 'User'),
-        ldap_bind_dn_password=configFile.get('Bind', 'Password'),
-        display_name=configFile.get('Host', 'DisplayName')
+        ldap_host=configFile['Hostname'],
+        ldap_base_dn=configFile['BaseDN'],
+        ldap_uid_field=configFile['Username'],
+        full_name_field=configFile['Fullname'],
+        ldap_bind_dn=configFile['BindUser'],
+        ldap_bind_dn_password=configFile['BindPassword'],
+        display_name=configFile['Description']
         )
 
 def read_dovecot_extra_conf():
