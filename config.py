@@ -81,8 +81,8 @@ def read_dovecot_passdb_conf_template():
         data = Template(f.read())
 
     return data.substitute(
-        ldap_host=config['Hostname'],
-        ldap_base_dn=config['BaseDN']
+        ldap_host=config.config['Hostname'],
+        ldap_base_dn=config.config['BaseDN']
         )
 
 def read_sogo_plist_ldap_template():
@@ -90,13 +90,13 @@ def read_sogo_plist_ldap_template():
         data = Template(f.read())
 
     return data.substitute(
-        ldap_host=config['Hostname'],
-        ldap_base_dn=config['BaseDN'],
-        ldap_uid_field=config['Username'],
-        full_name_field=config['Fullname'],
-        ldap_bind_dn=config['BindUser'],
-        ldap_bind_dn_password=config['BindPassword'],
-        display_name=config['DisplayName']
+        ldap_host=config.config['Hostname'],
+        ldap_base_dn=config.config['BaseDN'],
+        ldap_uid_field=config.config['Username'],
+        full_name_field=config.config['Fullname'],
+        ldap_bind_dn=config.config['BindUser'],
+        ldap_bind_dn_password=config.config['BindPassword'],
+        display_name=config.config['DisplayName']
         )
 
 def read_dovecot_extra_conf():
