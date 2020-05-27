@@ -38,7 +38,7 @@ def main():
         time.sleep(interval)
 
 def sync():
-    ldap_connector = ldap.initialize(f"{configFile['Hostname']}")
+    ldap_connector = ldap.initialize(f"{configFile['HostName']}")
     ldap_connector.set_option(ldap.OPT_REFERRALS, 0)
     ldap_connector.simple_bind_s(configFile['BindUser'], configFile['BindPassword'])
 
