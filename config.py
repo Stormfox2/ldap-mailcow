@@ -97,7 +97,7 @@ def read_sogo_plist_ldap_template():
     configFile = syncer.config_file
 
     return data.substitute(
-        ldap_host=configFile['Hostname'],
+        ldap_host=configFile['HostName'],
         ldap_base_dn=configFile['BaseDN'],
         ldap_uid_field=configFile['Username'],
         full_name_field=configFile['Fullname'],
