@@ -84,26 +84,26 @@ def read_dovecot_passdb_conf_template():
     with open('templates/dovecot/ldap/passdb.conf') as f:
         data = Template(f.read())
 
-    config = syncer.config_file
+    config_file = syncer.config_file
     return data.substitute(
-        ldap_host= config.get('Host', 'Hostname'),
-        ldap_base_dn=config.get('Host', 'BaseDN')
+        ldap_host= config_file['HostName'],
+        ldap_base_dn= config_file['BaseDN']
         )
 
 def read_sogo_plist_ldap_template():
     with open('templates/sogo/plist_ldap') as f:
         data = Template(f.read())
 
-    configFile = syncer.config_file
+    config_file = syncer.config_file
 
     return data.substitute(
-        ldap_host=configFile['HostName'],
-        ldap_base_dn=configFile['BaseDN'],
-        ldap_uid_field=configFile['Username'],
-        full_name_field=configFile['Fullname'],
-        ldap_bind_dn=configFile['BindUser'],
-        ldap_bind_dn_password=configFile['BindPassword'],
-        display_name=configFile['Description']
+        ldap_host=config_file['HostName'],
+        ldap_base_dn=config_file['BaseDN'],
+        ldap_uid_field=config_file['Username'],
+        full_name_field=config_file['Fullname'],
+        ldap_bind_dn=config_file['BindUser'],
+        ldap_bind_dn_password=config_file['BindPassword'],
+        display_name=config_file['Description']
         )
 
 def read_dovecot_extra_conf():
