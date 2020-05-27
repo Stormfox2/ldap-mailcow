@@ -1,7 +1,7 @@
 import configparser
 import logging
 import os
-from syncer import config
+from syncer import configFile
 from pathlib import Path
 from string import Template
 
@@ -90,13 +90,13 @@ def read_sogo_plist_ldap_template():
         data = Template(f.read())
 
     return data.substitute(
-        ldap_host=config.config['Hostname'],
-        ldap_base_dn=config.config['BaseDN'],
-        ldap_uid_field=config.config['Username'],
-        full_name_field=config.config['Fullname'],
-        ldap_bind_dn=config.config['BindUser'],
-        ldap_bind_dn_password=config.config['BindPassword'],
-        display_name=config.config['DisplayName']
+        ldap_host=configFile['Hostname'],
+        ldap_base_dn=configFile['BaseDN'],
+        ldap_uid_field=configFile['Username'],
+        full_name_field=configFile['Fullname'],
+        ldap_bind_dn=configFile['BindUser'],
+        ldap_bind_dn_password=configFile['BindPassword'],
+        display_name=configFile['DisplayName']
         )
 
 def read_dovecot_extra_conf():
