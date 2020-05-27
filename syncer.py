@@ -1,7 +1,6 @@
 import sys, os, string, time, datetime
 
 import ldap
-import self as self
 
 import filedb, api, config
 
@@ -21,7 +20,7 @@ def main():
     configPath = Path("db/config.ini")
     if not configPath.is_file():
         config.create_config()
-    self.config_file = config.read_config()
+    config_file = config.read_config()
 
     logging.info('Config in syncer')
     logging.info(config_file.keys())

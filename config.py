@@ -78,6 +78,8 @@ def read_config():
     result['API-Key'] = config.get('MailCow', 'API-Key')
     result['Sync-Interval'] = config.get('MailCow', 'Sync-Interval')
 
+    global config_file
+    config_file = result;
     return result
 
 def read_dovecot_passdb_conf_template():
