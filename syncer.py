@@ -28,8 +28,8 @@ def main():
     if passdb_conf_changed or extra_conf_changed or plist_ldap_changed:
         logging.info ("One or more config files have been changed, please make sure to restart dovecot-mailcow and sogo-mailcow!")
 
-    api.api_host = configFile['API_HOST']
-    api.api_key = configFile['API_KEY']
+    api.api_host = configFile['MailHostName']
+    api.api_key = configFile['API-Key']
 
     while (True):
         sync()
