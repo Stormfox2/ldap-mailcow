@@ -84,9 +84,9 @@ def read_dovecot_passdb_conf_template():
     with open('templates/dovecot/ldap/passdb.conf') as f:
         data = Template(f.read())
 
-    logging.info(syncer.config_file)
+    logging.info(syncer.config_file())
 
-    config_file = syncer.config_file
+    config_file = syncer.config_file()
     logging.info(config_file.keys())
     return data.substitute(
         ldap_host= config_file['HostName'],
