@@ -12,6 +12,9 @@ import logging
 
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%d.%m.%y %H:%M:%S', level=logging.INFO)
 
+config_file = {}
+
+
 def main():
     global config_file
     time.sleep(5)
