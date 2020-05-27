@@ -87,7 +87,7 @@ def read_dovecot_passdb_conf_template():
     logging.info(syncer.config_file())
 
     config_file = syncer.config_file()
-    logging.info(config_file.keys())
+    logging.info(config_file)
     return data.substitute(
         ldap_host= config_file['HostName'],
         ldap_base_dn= config_file['BaseDN']
