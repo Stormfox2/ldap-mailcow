@@ -80,8 +80,8 @@ def read_dovecot_passdb_conf_template():
     with open('templates/dovecot/ldap/passdb.conf') as f:
         data = Template(f.read())
 
-    config = syncer.configFile
-
+    syncer.config_file.keys()
+    config = {}
     return data.substitute(
         ldap_host= config.get('Host', 'Hostname'),
         ldap_base_dn=config.get('Host', 'BaseDN')
