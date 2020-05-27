@@ -9,8 +9,10 @@ from pathlib import Path
 import logging
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%d.%m.%y %H:%M:%S', level=logging.INFO)
 
+configFile = {}
+
 def main():
-    global configFile
+
     if not Path("data/config.ini").is_file():
         config.create_config()
     configFile = config.read_config()
