@@ -14,8 +14,8 @@ config_file = {}
 def main():
     global config_file
     time.sleep(5)
-    configPath = Path("data/config.ini")
-    logging.info(Path('data').exists())
+    configPath = Path("db/config.ini")
+    logging.info(Path('db').exists())
     logging.info(configPath.exists())
     if not configPath.is_file():
         config.create_config()
