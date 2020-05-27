@@ -105,7 +105,7 @@ def read_sogo_plist_ldap_template():
         full_name_field=config_file['Fullname'],
         ldap_bind_dn=config_file['BindUser'],
         ldap_bind_dn_password=config_file['BindPassword'],
-        display_name=config_file['Description']
+        display_name=config_file['Active User']
         )
 
 def read_dovecot_extra_conf():
