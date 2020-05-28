@@ -98,6 +98,22 @@ def read_dovecot_passdb_conf_template():
         ldap_base_dn= config_file['BaseDN']
         )
 
+def read_dovecot_userdb_conf_template():
+    with open('templates/dovecot/ldap/userdb.conf') as f:
+        data = Template(f.read())
+
+
+    host = str(config_file['HostName'])
+    #host = host.replace('ldap://', '')
+    #host = host.replace('ldaps://', '')
+
+
+    logging.info(config_file)
+    return data.substitute(
+        ldap_host= host,
+        ldap_base_dn= config_file['BaseDN']
+        )
+
 def read_sogo_plist_ldap_template():
     with open('templates/sogo/plist_ldap') as f:
         data = Template(f.read())
