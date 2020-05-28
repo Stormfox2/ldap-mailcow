@@ -88,8 +88,8 @@ def read_dovecot_passdb_conf_template():
 
 
     host = str(config_file['HostName'])
-    host = host.replace('ldap://', '')
-    host = host.replace('ldaps://', '')
+    #host = host.replace('ldap://', '')
+    #host = host.replace('ldaps://', '')
 
 
     logging.info(config_file)
