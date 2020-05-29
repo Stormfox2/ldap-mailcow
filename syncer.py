@@ -22,17 +22,11 @@ def main():
         config.create_config()
     config_file = config.read_config()
 
-    logging.info('Config in syncer')
-    logging.info(config_file.keys())
-    test()
-
     passdb_conf = config.read_dovecot_passdb_conf_template()
-    userdb_conf = config.read_dovecot_userdb_conf_template()
     plist_ldap = config.read_sogo_plist_ldap_template()
     extra_conf = config.read_dovecot_extra_conf()
 
     passdb_conf_changed = config.apply_config('conf/dovecot/ldap/passdb.conf', config_data=passdb_conf)
-    userdb_conf_changed = config.apply_config('conf/dovecot/ldap/userdb.conf', config_data=userdb_conf)
     extra_conf_changed = config.apply_config('conf/dovecot/extra.conf', config_data=extra_conf)
     plist_ldap_changed = config.apply_config('conf/sogo/plist_ldap', config_data=plist_ldap)
 
